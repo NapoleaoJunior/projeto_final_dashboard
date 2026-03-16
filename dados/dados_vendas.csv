@@ -1,4 +1,4 @@
-data,produto,categoria,regiao,vendedor,vendas,quantidade,custo,lucro
+data,produto,categoria,região,vendedor,vendas,quantidade,custo,lucro
 2025-05-10,teclado,eletrônicos,sul,David,5506,25,3021.9896475290143,2484.0103524709857
 2025-12-31,mouse,eletrônicos,norte,carlos,2007,1,3635.380842934898,-1628.3808429348978
 2025-11-10,notebook,periféricos,leste,diana,919,27,4334.381027103908,-3415.3810271039083

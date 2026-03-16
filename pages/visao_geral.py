@@ -20,9 +20,9 @@ st.divider()
 #graficos de resumos
 colA,colB = st.columns(2)
 with colA:
-    vendas_regiao = dados_vendas.groupby('regiao')['vendas'].sum().reset_index()
-    fig = px.pie(vendas_regiao,names='regiao',values='vendas',
-                 title='distribuicao de vendas por regiao',hole=0.4)
+    vendas_região = dados_vendas.groupby('região')['vendas'].sum().reset_index()
+    fig = px.pie(vendas_região,names='região',values='vendas',
+                 title='distribuicao de vendas por região',hole=0.4)
     st.plotly_chart(fig,width='stretch')
 
 with colB:
