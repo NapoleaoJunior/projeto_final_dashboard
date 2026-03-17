@@ -100,3 +100,8 @@ fig = px.bar(
     title='receita X lucro mensal')
 fig.update_layout(xaxis_title=-45)
 st.plotly_chart(fig,width='stretch')
+
+with st.expander("Dados detalhados"):
+    st.dataframe(dados_filtrados,width='stretch')
+    csv = dados_filtrados.to_csv(index=False).encode('utf-8')
+    st.download_button('baixar dados filtrados',data=csv,file_name='dados_filtrados.csv',mime='text/csv')
