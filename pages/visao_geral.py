@@ -27,7 +27,7 @@ with colA:
 
 with colB:
     dados_vendas['data']= pd.to_datetime(dados_vendas['data'])
-    dados_vendas['mes']=dados_vendas['data'].dt.to_period('m').astype(str)
+    dados_vendas['mes'] = dados_vendas['data'].dt.to_period('M').astype(str)
     vendas_mensal = dados_vendas.groupby('mes')['vendas'].sum().reset_index()
     fig = px.line(vendas_mensal,x='mes',y='vendas',title='evolucao mensal',markers=True)
     st.plotly_chart(fig,width='stretch')
