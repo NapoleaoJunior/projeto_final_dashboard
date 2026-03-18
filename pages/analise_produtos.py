@@ -14,12 +14,12 @@ st.markdown(
 )
 
 st.title("💰 Análise detalhada dos produtos")
-def plot_grafico_vendas(df:pd.DataFrame,produto:str,data_unica):
-  produtos  = sorted["headset", "teclado", "mouse", "notebook", "ssd", "monitor"]
-  categorias = sorted["eletrônicos", "periféricos"]
-  regioes    = sorted["norte", "sul", "leste", "oeste"]
-  vendedores = sorted["Alice", "Bob", "Charlie", "David", "Carlos", "Diana", "Paulo", "Elena"]
-  option = st.selectbox(
+
+produtos  = sorted["headset", "teclado", "mouse", "notebook", "ssd", "monitor"]
+categorias = sorted["eletrônicos", "periféricos"]
+regioes    = sorted["norte", "sul", "leste", "oeste"]
+vendedores = sorted["Alice", "Bob", "Charlie", "David", "Carlos", "Diana", "Paulo", "Elena"]
+option = st.selectbox(
     "selecine um produto",
     options=produtos,
     index=0
