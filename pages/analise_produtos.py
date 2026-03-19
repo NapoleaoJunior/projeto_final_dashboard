@@ -20,14 +20,14 @@ categorias = sorted(["eletrônicos", "periféricos"])
 regioes    = sorted(["norte", "sul", "leste", "oeste"])
 vendedores = sorted(["Alice", "Bob", "Charlie", "David", "Carlos", "Diana", "Paulo", "Elena"])
 
-option = st.selectbox(
-    "selecine um produto",
+options = st.selectbox(
+    "selecione um produto",
     options=produtos,
     index=0
 )
 df_valor_venda = pd.read_csv("dados/dados_vendas.csv")
-df_filtrado = df_valor_venda[df_valor_venda['produto']==option]
-st.subheader(f"Vendas do produto: {option}")
+df_filtrado = df_valor_venda[df_valor_venda['produto']==options]
+st.subheader(f"Vendas do produto: {options}")
 st.line_chart(df_filtrado["vendas"])
 
 @st.cache_data
@@ -128,3 +128,4 @@ if not dados_filtrados.empty:
     st.plotly_chart(fig, use_container_width=True)
 else:
     st.info("Nenhum dado encontrado para os filtros selecionados.")
+
