@@ -30,3 +30,5 @@ dados_vendas = pd.read_csv(
 dados_vendas["Latitude"]=pd.to_numeric(dados_vendas["Latitude"],errors="coerce")
 dados_vendas["Longitude"]=pd.to_numeric(dados_vendas["Longitude"],errors="coerce")
 st.map(dados_vendas,latitude="Latitude",longitude="Longitude")
+
+st.dataframe(dados_filtrados)
