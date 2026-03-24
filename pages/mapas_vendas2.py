@@ -10,7 +10,8 @@ df = pd.read_csv(
     "dados/vendas_geolocalizacao.csv",
     encoding="utf-8"
 )
-
+dados_filtrados = df[df['Vendas']>0].copy()
+st.dataframe(dados_filtrados.head())
 # ── Tratamento de dados ─────────────────────────────────────────────────────────
 df["Latitude"] = pd.to_numeric(df["Latitude"], errors="coerce")
 df["Longitude"] = pd.to_numeric(df["Longitude"], errors="coerce")
@@ -114,13 +115,13 @@ with col4:
     )
 
 # ── Mapa ────────────────────────────────────────────────────────────────────────
-st.subheader("🗺️ Mapa de Vendas")
-st.map(
-    df_filtrado,
-    latitude="Latitude",
-    longitude="Longitude"
+dados_vendas = pd.read_csv(
+    "dados/vendas_geolocalizacao.csv",
+    usecols=["Latitude", "Longitude","Região", "Cidade", "Vendas", "Lucro"],
+    sep=",",encoding="utf-8"
 )
+dados_vendas["Latitude"]=pd.to_numeric(dados_vendas["Latitude"],errors="coerce")
+dados_vendas["Longitude"]=pd.to_numeric(dados_vendas["Longitude"],errors="coerce")
+st.map(dados_vendas,latitude="Latitude",longitude="Longitude")
 
-# ── Tabela ──────────────────────────────────────────────────────────────────────
-st.subheader("📄 Dados Filtrados")
-st.dataframe(df_filtrado)
+st.dataframe(dados_filtrados)

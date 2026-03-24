@@ -10,17 +10,13 @@ dados_filtrados = dados_vendas[dados_vendas['Vendas']>0].copy()
 st.dataframe(dados_filtrados.head())
 col1,col2,col3,col4 = st.columns(4)
 with col1:
-    qpv_Q_linha = dados_filtrados['Vendas'].sum()
-    st.metric(label='quantidade de pontos de venda',value=f'{qpv_Q_linha} somados')
+    st.metric('quantidade de pontos de venda',dados_filtrados.shape[0])
 with col2:
-    quantidade_cidade = dados_filtrados['Cidade']
-    st.metric(label='cidades que realizarao as vendas',value=f'{quantidade_cidade}')
+    st.metric('cidades que realizarao as vendas',dados_filtrados["Cidade"].nunique())
 with col3:
-  soma_vendas = dados_filtrados['Vendas'].sum()
-  st.metric(label='soma das vendas realizadas',value=format(soma_vendas))  
+  st.metric('soma das vendas realizadas',f"R$ {dados_filtrados['Vendas'].sum():,.2f}")  
 with col4:
-  soma_lucro = dados_filtrados['Lucro'].sum()
-  st.metric(label='soma dos lucros',value=format(soma_lucro))  
+  st.metric('soma dos lucros',f"R$ {dados_filtrados['Lucro'].sum():,.2f}")  
 
 dados_vendas = pd.read_csv(
     "dados/vendas_geolocalizacao.csv",
