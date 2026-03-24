@@ -44,11 +44,10 @@ data_min = df["Data"].min().date()
 data_max = df["Data"].max().date()
 
 data_inicio, data_fim = st.sidebar.date_input(
-    "Período",
+   "Período",
     value=(data_min, data_max),
     min_value=data_min,
-    max_value=data_max,
-)
+    max_value=data_max,)
 
 # Faixa de vendas
 venda_min = int(df["Vendas"].min())
